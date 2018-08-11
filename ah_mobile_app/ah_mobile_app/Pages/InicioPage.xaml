@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:pages="clr-namespace:ah_mobile_app.Pages"
+                  x:Class="ah_mobile_app.Pages.InicioPage"
+                  MasterBehavior="Popover">
+  <MasterDetailPage.Master>
+        <pages:InicioPageMaster x:Name="MasterPage" Icon="hamburger.png"/>
+  </MasterDetailPage.Master>
+  <MasterDetailPage.Detail>
+    <NavigationPage>
+      <x:Arguments>
+        <pages:InicioPageDetail />
+      </x:Arguments>
+    </NavigationPage>
+  </MasterDetailPage.Detail>
+</MasterDetailPage>

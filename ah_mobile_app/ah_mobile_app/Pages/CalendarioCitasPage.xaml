@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ah_mobile_app.Pages.CalendarioCitasPage"
+             Title="Lista de Citas">
+    <ContentPage.Content>
+        <!--<ListView ItemsSource="{x:Static local:CalendarioCitasPage.items}" ItemSelected="OnSelection" ItemTapped="OnTap" IsPullToRefreshEnabled="true" Refreshing="OnRefresh">-->
+        <ListView ItemsSource="{Binding CitasMascota}" ItemSelected="OnSelection" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.ContextActions>
+                            <!-- CommandParameter is the command to pass to the clicked event handler. Because these are menu items, 
+							not cells managed by the ListView, CommandParameter is neccesary to determine which 
+							cell the context action was taken on. -->
+                            <MenuItem Clicked="OnMore" Text="More" CommandParameter="{Binding .}" />
+                            <MenuItem Clicked="OnDelete" Text="Delete" IsDestructive="true" CommandParameter="{Binding .}" />
+                        </ViewCell.ContextActions>
+                        <!--<StackLayout Padding="15,0">
+                            <Label Text="{Binding id}"/>
+                            <Label Text="{Binding fecha.Date}"/>
+                            <Label Text="{Binding duracion.TimeOfDay}"/>
+                        </StackLayout>-->
+                        <Frame CornerRadius="5"  
+                               OutlineColor="Black"
+                               HasShadow="True"
+                               Padding="20"
+                               Margin="10">
+                            <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" Padding="0,10">
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                                    <Label Text="Mascota: " FontSize="Medium" FontAttributes="Bold"/>
+                                    <Label Text="{Binding mascota_nombre}" FontSize="Medium"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                                    <Label Text="Fecha: " FontSize="Medium" FontAttributes="Bold"/>
+                                    <Label Text="{Binding cita_fecha, StringFormat='{0:MMMM dd, yyyy}'}" FontSize="Medium"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                                    <Label Text="Hora: " FontSize="Medium" FontAttributes="Bold"/>
+                                    <Label Text="{Binding cita_fecha, StringFormat='{}{0:hh\\:mm}'}" FontSize="Medium"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

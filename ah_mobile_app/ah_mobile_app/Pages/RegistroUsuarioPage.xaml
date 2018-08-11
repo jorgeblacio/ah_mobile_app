@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ah_mobile_app.RegistroUsuarioPage"
+             Title="Registro de Usuario">
+    <ContentPage.Content>
+        <ScrollView x:Name="myscrollview">
+        <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
+            <BoxView HeightRequest="10"/>
+            <Image HorizontalOptions="Center" WidthRequest="300" Source="maco.jpg"/>
+            <Frame BackgroundColor="#BF043055" HasShadow="False">
+                <StackLayout Orientation="Vertical" Spacing="10">
+                        <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand"  Spacing="0">
+                            <Label Text="Nombre:" TextColor="White" HeightRequest="40" FontSize="Medium"/>
+                            <Entry x:Name="nombre_entry" Text="{Binding Nombre}" Placeholder="Nombre"   
+                           PlaceholderColor="Gray" HeightRequest="40"   
+                           MaxLength="40"
+                           Keyboard="Chat"  
+                           TextColor="White"
+                            HorizontalTextAlignment="Center"
+                            HorizontalOptions="FillAndExpand"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand"  Spacing="0">
+                            <Label Text="Cédula:" TextColor="White" HeightRequest="40" FontSize="Medium"/>
+                            <Entry x:Name="cédula_entry" Text="{Binding Cedula}" Placeholder="Cédula"   
+                           PlaceholderColor="Gray" HeightRequest="40"   
+                           MaxLength="10"
+                           Keyboard="Numeric"  
+                           TextColor="White"
+                            HorizontalTextAlignment="Center"
+                            HorizontalOptions="FillAndExpand"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand"  Spacing="0">
+                            <Label Text="Dirección:" TextColor="White" HeightRequest="40" FontSize="Medium"/>
+                            <Entry x:Name="dirección_entry" Text="{Binding Direccion}" Placeholder="Dirección"   
+                           PlaceholderColor="Gray" HeightRequest="40"   
+                           MaxLength="50"
+                           Keyboard="Chat"   
+                           TextColor="White"
+                            HorizontalTextAlignment="Center"
+                            HorizontalOptions="FillAndExpand"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand"  Spacing="0">
+                            <Label Text="Teléfono:" TextColor="White" HeightRequest="40" FontSize="Medium"/>
+                            <Entry x:Name="teléfono_entry" Text="{Binding Telefono}" Placeholder="0999887766"   
+                           PlaceholderColor="Gray" HeightRequest="40"   
+                           Keyboard="Numeric"
+                           MaxLength="20"
+                           TextColor="White"
+                            HorizontalTextAlignment="Center"
+                            HorizontalOptions="FillAndExpand"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand"  Spacing="0">
+                            <Label Text="Email:" TextColor="White" HeightRequest="40" FontSize="Medium"/>
+                            <Entry x:Name="email_entry" Text="{Binding Email}" Placeholder="ejemplo@gmail.com"   
+                           PlaceholderColor="Gray" HeightRequest="40"
+                           MaxLength="20"                           
+                           Keyboard="Email"   
+                           TextColor="White"
+                            HorizontalTextAlignment="Center"
+                            HorizontalOptions="FillAndExpand"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand"  Spacing="0">
+                            <Label Text="Contraseña:" TextColor="White" HeightRequest="40" FontSize="Medium"/>
+                            <Entry x:Name="contraseña_entry" Text="{Binding Password}" Placeholder="Contraseña"   
+                           PlaceholderColor="Gray" HeightRequest="40"   
+                           IsPassword="True"
+                           MaxLength="20"
+                           Keyboard="Chat"   
+                           TextColor="White"
+                            HorizontalTextAlignment="Center"
+                            HorizontalOptions="FillAndExpand"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand"  Spacing="0">
+                            <Label Text="Contraseña:" TextColor="White" HeightRequest="40" FontSize="Medium"/>
+                            <Entry x:Name="contraseña2_entry" Text="{Binding Password2}" Placeholder="Repita Contraseña"   
+                           PlaceholderColor="Gray" HeightRequest="40"   
+                           MaxLength="20"
+                           IsPassword="True"
+                           Keyboard="Chat"   
+                           TextColor="White"
+                            HorizontalTextAlignment="Center"
+                            HorizontalOptions="FillAndExpand"/>
+                        </StackLayout>
+                    </StackLayout>
+            </Frame>
+            <Button x:Name="ButtonRegistro" Command="{Binding RegistrarUserCommand}" Text="REGISTRAR" TextColor="White"  
+                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#088da5" />
+
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

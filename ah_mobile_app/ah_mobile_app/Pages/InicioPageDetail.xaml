@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ah_mobile_app.Pages"
+             x:Class="ah_mobile_app.Pages.InicioPageDetail"
+             Title="Página Principal"
+             >
+    <ContentPage.Content>
+        <!--<ListView ItemsSource="{x:Static local:CalendarioCitasPage.items}" ItemSelected="OnSelection" ItemTapped="OnTap" IsPullToRefreshEnabled="true" Refreshing="OnRefresh">-->
+        <ListView ItemsSource="{Binding Mascotas}" ItemSelected="OnSelection" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.ContextActions>
+                            <!-- CommandParameter is the command to pass to the clicked event handler. Because these are menu items, 
+							not cells managed by the ListView, CommandParameter is neccesary to determine which 
+							cell the context action was taken on. -->
+                            <MenuItem Clicked="OnMore" Text="Más" CommandParameter="{Binding .}" />
+                            <MenuItem Clicked="OnEdit" Text="Editar" CommandParameter="{Binding .}" />
+                            <MenuItem Clicked="OnDelete" Text="Borrar" IsDestructive="true" CommandParameter="{Binding .}" />
+                        </ViewCell.ContextActions>
+                        <Frame CornerRadius="5"  
+                               OutlineColor="Black"
+                               HasShadow="True"
+                               Padding="20"
+                               Margin="10">
+                            <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" Padding="0,10">
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                                    <Label Text="Nombre: " FontAttributes="Bold" FontSize="Medium"/>
+                                    <Label Text="{Binding nombre}" FontSize="Medium"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                                    <Label Text="Raza: " FontAttributes="Bold" FontSize="Medium"/>
+                                    <Label Text="{Binding raza}" FontSize="Medium"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

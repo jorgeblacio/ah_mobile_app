@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ah_mobile_app.Pages.RegistroMascotaPage"
+             Title="Registro de Mascota">
+    <ContentPage.Content>
+        <ScrollView x:Name="scroll">
+            <StackLayout Orientation="Vertical" Padding="30">
+                <Frame BackgroundColor="#BF043055" HasShadow="False">
+                    <StackLayout Orientation="Vertical">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="0">
+                            <Label Text="Edad:" TextColor="White" FontSize="Medium"/>
+                            <Entry x:Name="edad_entry" Text="{Binding Edad}" Placeholder="Edad de la mascota"   
+                                PlaceholderColor="Gray" HeightRequest="40"   
+                                Keyboard="Numeric"
+                                MaxLength="2"
+                                TextColor="White"
+                                HorizontalTextAlignment="Center"
+                                HorizontalOptions="FillAndExpand"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="0">
+                            <Label Text="Nombre:" TextColor="White" HeightRequest="40" FontSize="Medium" />
+                            <Entry x:Name="nombre_entry" Text="{Binding Nombre}" Placeholder="Nombre"   
+                                PlaceholderColor="Gray" HeightRequest="40"   
+                                Keyboard="Chat"
+                                MaxLength="20"
+                                TextColor="White"
+                                HorizontalTextAlignment="Center"
+                                HorizontalOptions="FillAndExpand"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="0">
+                            <Label Text="Especie:" TextColor="White" HeightRequest="40" FontSize="Medium" />
+                            <Picker x:Name="Picker" Title="Especie" TextColor="White" SelectedIndexChanged="OnPickerSelectedIndexChanged" HorizontalOptions="FillAndExpand">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>Perro</x:String>
+                                        <x:String>Gato</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="0">
+                            <Label Text="Raza:" TextColor="White" HeightRequest="40" FontSize="Medium" />
+                            <Entry x:Name="raza_entry" Text="{Binding Raza}" Placeholder="i.e.- Corgi"   
+                                PlaceholderColor="Gray" HeightRequest="40"   
+                                Keyboard="Chat"
+                                MaxLength="20"
+                                TextColor="White"
+                                HorizontalTextAlignment="Center"
+                                HorizontalOptions="FillAndExpand"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand"  Spacing="0">
+                            <Label Text="Peso:" TextColor="White" HeightRequest="40" FontSize="Medium"/>
+                            <Entry x:Name="peso_entry" Text="{Binding Peso}" Placeholder="Peso en libras"   
+                                PlaceholderColor="Gray" HeightRequest="40"   
+                                Keyboard="Numeric"
+                                MaxLength="3"
+                                TextColor="White"
+                                HorizontalTextAlignment="Center"
+                                HorizontalOptions="FillAndExpand"/>
+                        </StackLayout>
+                        <Button x:Name="ButtonRegistro" Command="{Binding RegistrarMascotaCommand}" Text="REGISTRAR" TextColor="White"  
+                            FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                            BackgroundColor="#088da5" />
+                    </StackLayout>
+                    
+                </Frame>
+                
+                
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ah_mobile_app.Pages"
+             x:Class="ah_mobile_app.Pages.InicioPageMaster"
+             Padding="0,40,0,0"
+             Title="Animal House">
+    <StackLayout>
+        <ListView x:Name="listView">
+            <ListView.ItemsSource>
+                <x:Array Type="{x:Type local:InicioPageMenuItem}">
+                    <local:InicioPageMenuItem Title="Página de Inicio" IconSource="home.png" TargetType="{x:Type local:InicioPageDetail}" />
+                    <local:InicioPageMenuItem Title="Agendar una Cita" IconSource="appointment.png" TargetType="{x:Type local:ReservarCitaPage}" />
+                    <local:InicioPageMenuItem Title="Citas Agendadas" IconSource="calendar.png" TargetType="{x:Type local:CalendarioCitasPage}" />
+                    <local:InicioPageMenuItem Title="Agregar una Mascota" IconSource="paw.png" TargetType="{x:Type local:RegistroMascotaPage}" />
+                    <local:InicioPageMenuItem Title="Información" IconSource="info.png" TargetType="{x:Type local:AboutUsPage}" />
+                </x:Array>
+            </ListView.ItemsSource>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="5,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding IconSource}" />
+                            <Label Grid.Column="1" Text="{Binding Title}" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

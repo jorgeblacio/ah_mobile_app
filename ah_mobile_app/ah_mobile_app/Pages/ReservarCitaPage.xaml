@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             x:Class="ah_mobile_app.Pages.ReservarCitaPage"
+             Title="Agendar Cita">
+    <ContentPage.Content>
+        <ScrollView x:Name="scroll">
+            <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
+                <Frame BackgroundColor="#BF043055" HasShadow="False">
+                    <StackLayout Orientation="Vertical" Spacing="10">
+                        <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand"  Spacing="0">
+                            <Label Text="Mascota:" TextColor="White" HeightRequest="40" FontSize="Medium"/>
+                            <Picker x:Name="picker" Title="Mascota" SelectedIndexChanged="OnPickerSelectedIndexChanged" TextColor="White" ItemsSource="{Binding MascotaNombres}"
+                                    HorizontalOptions="FillAndExpand"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand"  Spacing="0">
+                            <Label Text="Fecha:" TextColor="White" HeightRequest="40" FontSize="Medium"/>
+                            <DatePicker x:Name="startDatePicker" TextColor="White" VerticalOptions="CenterAndExpand" DateSelected="OnDateSelected" MinimumDate="{x:Static sys:DateTime.Now}" 
+                                HorizontalOptions="FillAndExpand">
+                                <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
+                            </DatePicker>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand"  Spacing="0">
+                            <Label Text="Hora:" TextColor="White" HeightRequest="40" FontSize="Medium"/>
+                            <Picker x:Name="picker_horario" 
+                                    SelectedIndexChanged="OnAvailablePickerSelectedIndexChanged" 
+                                    Title="Horario" TextColor="White" 
+                                    ItemsSource="{Binding Available}"
+                                HorizontalOptions="FillAndExpand"/>
+                        </StackLayout>
+                        <!--<DatePicker x:Name="startDatePicker"
+                            Format="d"
+                            TextColor="White"
+                            DateSelected="OnDateSelected" 
+                            MinimumDate="{x:Static system:DateTime.Now}"/>-->
+                        <!--<Entry x:Name="FechaS" Text="{Binding fecha}" Placeholder="Fecha"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           Keyboard="Chat" 
+                           TextColor="White"/>-->
+                    </StackLayout>
+                </Frame>
+
+                <Button x:Name="ButtonRegistro" Command="{Binding RegistrarCitaCommand}" Text="REGISTRAR" TextColor="White"  
+                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#088da5" />
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
